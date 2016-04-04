@@ -1,0 +1,17 @@
+group 'com.playphone.alex'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('io.appium:java-client:3.3.0') {
+        exclude module: 'selenium-java'
+    }
+    compile 'org.seleniumhq.selenium:selenium-java:2.52.0'
+}
