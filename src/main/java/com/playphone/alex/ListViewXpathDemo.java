@@ -60,12 +60,9 @@ public class ListViewXpathDemo {
 		System.out.println("First child text: " + firstChild.getText());
 		int x = childSize.getWidth() / 2;
 
-		//Fling the first child out of view
-		TouchAction swipe = new TouchAction(driver);
-		swipe.press(x, upperLeft.getY() + childSize.getHeight());
-		swipe.moveTo(0, -childSize.getHeight());
-		swipe.release();
-		swipe.perform();
+		Dimension screenSize = driver.manage().window().getSize();
+
+		driver.swipe(x, screenSize.getHeight() - 1, x, upperLeft.getY(), 3000);
 
 		System.out.println("Now printing the values of the first child again to see what the values are:");
 		upperLeft = firstChild.getLocation();
